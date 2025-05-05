@@ -1,0 +1,61 @@
+body {
+    background: linear-gradient(to right, #A8E6CF, #DCEDC1); /* nuansa hijau lembut */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #2F4F4F;
+    margin: 0;
+    padding: 0;
+}
+
+.login {
+    background-color: #fffef5;
+    max-width: 450px;
+    margin: 80px auto;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    border: 2px solid #A5D6A7; /* hijau pucat */
+}
+
+h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #558B2F; /* hijau daun */
+    margin-bottom: 30px;
+    font-weight: 600;
+    font-size: 26px;
+}
+
+form input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #A1887F; /* warna tanah */
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: #f9fbe7;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #8BC34A; /* hijau segar */
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #689F38;
+}
+
+#pred_label {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #33691E; /* hijau tua */
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ML API - Crop Prediction</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+  <style>
+    /* Gaya untuk body halaman */
+    body {
+      background-image: url("{{ url_for('static', filename='ant-rozetsky--c0PJUAtpSo-unsplash.jpg') }}");
+      background-size: cover;
+      background-position: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #2F4F4F;
+      margin: 0;
+      padding: 0;
+      height: 100vh; /* Mengatur tinggi body agar memenuhi seluruh layar */
+    }
+
+    /* Gaya untuk div login */
+    .login {
+  background-color: rgba(255, 255, 255, 0.85);
+  max-width: 450px;
+  margin: 40px auto;
+  padding: 20px 25px; /* Lebih kecil dari sebelumnya */
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border: 1.5px solid #A5D6A7;
+    }
+
+    /* Gaya untuk header */
+    h1 {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #558B2F; /* Hijau daun */
+      margin-bottom: 30px;
+      font-weight: 600;
+      font-size: 26px;
+    }
+
+    /* Gaya untuk input form */
+    form input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #A1887F; /* Warna tanah */
+      border-radius: 8px;
+      box-sizing: border-box;
+      font-size: 16px;
+      background-color: #f9fbe7; /* Background kuning muda */
+    }
+
+    /* Gaya untuk tombol submit */
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #8BC34A; /* Hijau segar */
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #689F38; /* Hijau lebih gelap saat hover */
+    }
+
+    /* Gaya untuk teks hasil prediksi */
+    #pred_label {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #33691E; /* Hijau tua */
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="login">
+    <h1>Crop Prediction Model</h1>
+
+    <form action="{{ url_for('predict') }}" method="POST">
+      <!-- Nama-nama field HARUS urut dan cocok dengan urutan input model -->
+      <input type="text" name="N" placeholder="Nitrogen (N)" required />
+      <input type="text" name="P" placeholder="Phosphorus (P)" required />
+      <input type="text" name="K" placeholder="Potassium (K)" required />
+      <input type="text" name="temperature" placeholder="Temperature (°C)" required />
+      <input type="text" name="humidity" placeholder="Humidity (%)" required />
+      <input type="text" name="ph" placeholder="pH" required />
+      <input type="text" name="rainfall" placeholder="Rainfall (mm)" required />
+
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+    <br><br>
+    <h1 id="pred_label">
+      {{ prediction_text }}
+    </h1>
+  </div>
+</body>
+</html>
