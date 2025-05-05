@@ -27,6 +27,6 @@ X_test, y_test = Test_set.drop(columns=['label']), Test_set['label']
 model_rf = RandomForestClassifier(n_estimators=100, random_state=42)
 model_rf.fit(X_train, y_train)
 
-# Save the model
+
 joblib.dump(model_rf, "model_rf.pkl")
 print("Model saved as model_rf.pkl")
